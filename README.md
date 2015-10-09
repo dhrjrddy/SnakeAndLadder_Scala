@@ -1,6 +1,6 @@
 ##Snakes And Ladders
 
-Simple Snakes and Ladders Game Implemented in Scala and Maven and perforemd Junit testing.
+Simple Snakes and Ladders Game Implemented in Scala and Sbt and perforemd Junit testing.
 
 
 ##Snakes and Ladders Game - Rules
