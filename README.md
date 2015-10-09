@@ -1,5 +1,5 @@
 ##Snakes And Ladders
----
+
 Simple Snakes and Ladders Game Implemented in Scala and Maven and perforemd Junit testing.
 
 
