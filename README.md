@@ -38,7 +38,5 @@ log4j.appender.sql.driver=
 log4j.appender.sql.user=
 log4j.appender.sql.password=
 ```
-		
-Game is verified on *Java version 7 and JDK1.7*.
 
-Run the SnakeAndLadder.java file to start.
+Compile Test and Run the the code in sbt.
