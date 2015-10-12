@@ -9,7 +9,7 @@ object DisplayResult {
    *
    * @param gameResultsList
    */
-  def showAllGamesResults(gameResultsList: List[GameResult]) {
+  def showAllGamesResults(gameResultsList: List[GameResult]) = {
     gameResultsList.foreach { game =>
       print("Game Name: " + game.gameId)
       print("   Game Played on " + game.date)
@@ -22,7 +22,7 @@ object DisplayResult {
    *
    * @param gameDetailsList
    */
-  def showGameDetails(gameDetailsList: List[Player]) {
+  def showGameDetails(gameDetailsList: List[Player]) = {
     gameDetailsList.foreach { player =>
       print("Player Name = " + player.name)
       println("   Player position = " + player.position)
@@ -34,7 +34,7 @@ object DisplayResult {
    *
    * @param playerList
    */
-  def showWinner(playerList: HashMap[Integer, Player]) {
+  def showWinner(playerList: HashMap[Integer, Player]) = {
     if (playerList != None) {
       for (key <- playerList.keySet if playerList.get(key).get.position == 100) {
         println(playerList.get(key).get.name + " is the Winner.")

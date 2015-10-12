@@ -10,7 +10,7 @@ class RepositoryImp extends Repository {
   // This map contains all the players and there positions for all games.
   private var gameResultDetails = new HashMap[String, HashMap[Integer, Player]]()
 
-  def save(playerList: HashMap[Integer, Player]) {
+  def save(playerList: HashMap[Integer, Player]) = {
     val gameId = "Game" + (gameResults.size + 1) // Generating a gameId for every game.
     gameResultDetails = gameResultDetails + (gameId -> playerList)
     for (key <- playerList.keySet if playerList.get(key).get.position == 100) {
@@ -19,7 +19,7 @@ class RepositoryImp extends Repository {
     }
   }
 
-  def delete(gameId: String) {
+  def delete(gameId: String) = {
     gameResultDetails = gameResultDetails - gameId
     for (game <- gameResults if game.gameId.equals(gameId)) {
       gameResults = gameResults diff List(game)

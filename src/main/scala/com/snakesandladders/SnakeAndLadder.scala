@@ -16,19 +16,19 @@ import scala.collection.mutable.HashMap
 
 object SnakeAndLadder {
 
-  private val playerList = new HashMap[Integer, Player] // Contains all players and their positions.
+  private var playerList: HashMap[Integer, Player] = null // Contains all players and their positions.
   private val gameResults = new DbRepositoryImp()
 
   /**
    * @return list of game results
    */
-  def allGamesResults() = gameResults.allGameResults()
+  private def allGamesResults() = gameResults.allGameResults()
 
   /**
    * @param gameId
    * @return list of input gameId details with player name and position.
    */
-  def gameDetails(gameId: String) = gameResults.gameResultDetails(gameId)
+  private def gameDetails(gameId: String) = gameResults.gameResultDetails(gameId)
 
   /**
    * This method auto generate the player names and initialize their position
@@ -37,7 +37,7 @@ object SnakeAndLadder {
    * @param totalPlayers
    */
   private def createMultiplePlayers(totalPlayers: Int) = {
-
+    playerList = new HashMap[Integer, Player]
     val startPosition = 0
     for (playerNum <- 1 to totalPlayers) {
       // initializing player position to 0.
@@ -53,7 +53,7 @@ object SnakeAndLadder {
    * to database.
    *
    */
-  def startGame(totalPlayers: Int) = {
+  private def startGame(totalPlayers: Int) = {
     if (totalPlayers < 2) { // Check if total players is less than 2.
       System.out.println("Please enter more than 1 player.")
     } else {
@@ -75,14 +75,14 @@ object SnakeAndLadder {
       userChoice match {
         case 1 =>
           System.out.println("Enter player count...")
-          val totalPlayers=io.StdIn.readInt
+          val totalPlayers = io.StdIn.readInt
           startGame(totalPlayers)
           DisplayResult.showWinner(playerList)
         case 2 =>
           DisplayResult.showAllGamesResults(allGamesResults())
         case 3 =>
           System.out.println("Enter game id...")
-          val gameId=io.StdIn.readLine()
+          val gameId = io.StdIn.readLine()
           DisplayResult.showGameDetails(gameDetails(gameId))
         case _ =>
       }

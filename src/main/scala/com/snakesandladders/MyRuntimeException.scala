@@ -1,3 +1,3 @@
 package com.snakesandladders
 
-class MyRuntimeException(message: String) extends  Exception(message)
+case class MyRuntimeException(message: String) extends  RuntimeException(message)
